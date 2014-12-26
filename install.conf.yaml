@@ -9,3 +9,5 @@
     ~/.zprofile: prezto/runcoms/zprofile
     ~/.zshenv: prezto/runcoms/zshenv
     ~/.zshrc: prezto/runcoms/zshrc
+    #spacemacs contrib layers
+    ~/.emacs.d/private/rust: spacemacs/layers/rust
