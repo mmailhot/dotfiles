@@ -9,17 +9,18 @@
  ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
  dotspacemacs-configuration-layer-path '()
  ;; List of contribution to load.
- dotspacemacs-configuration-layers '(trishume company-mode clojure-dev rust)
+ dotspacemacs-configuration-layers '(trishume company-mode erlang-elixir clojure rust git)
  ;; If non nil the frame is maximized when Emacs starts up (Emacs 24.4+ only)
  dotspacemacs-fullscreen-at-startup nil
  ;; A list of packages and/or extensions that will not be install and loaded.
- dotspacemacs-excluded-packages '(auto-complete ac-ispell tern-auto-complete auto-complete-clang enslime edts)
  ;; The default package repository used if no explicit repository has been
  ;; specified with an installed package.
  ;; Not used for now.
  dotspacemacs-default-package-repository nil
 
- dotspacemacs-default-theme 'solarized-dark
+ evil-lisp-state-major-modes '(emacs-lisp-mode clojure-mode)
+ evil-lisp-state-leader-prefix "mp"
+ dotspacemacs-themes '(solarized-dark)
  )
 
 ;; Functions
@@ -27,24 +28,37 @@
 (defun dotspacemacs/init ()
   "User initialization for Spacemacs. This function is called at the very
  startup."
-  (set-default-font "Input Mono Medium 9")
+  (set-default-font "Inconsolata 11")
+  (setq-default evil-escape-key-sequence (kbd "dh"))
+  (setq spacemacs-erlang-elixir-use-edts t)
+  (setq org-src-fontify-natively t)
+  (setq ido-auto-merge-work-directories-length -1)
   )
 
+(defun dotspacemacs/fixclj ()
+  (progn
+    (paredit-mode f)))
+
 (defun dotspacemacs/config ()
-  (mapcar (lambda (kmap)
-            (define-key kmap "n" 'evil-next-visual-line)
-            (define-key kmap "h" 'evil-backward-char)
-            (define-key kmap "i" 'evil-forward-char)
-            (define-key kmap "e" 'evil-previous-visual-line)
-            (define-key kmap "s" 'evil-insert)
-            (define-key kmap "S" 'evil-insert-line)
-            (define-key kmap "k" 'spacemacs/anzu-evil-search-next)
-            (define-key kmap "K" 'spacemacs/anzu-evil-search-previous)
-            (define-key kmap "j" 'evil-forward-word-end)
-            (define-key kmap "J" 'evil-forward-WORD-end)
-            (define-key kmap "l" 'evil-first-non-blank)
-            (define-key kmap "L" 'evil-end-of-line))
-          (list evil-normal-state-map evil-lisp-state-map evil-visual-state-map))
-  (define-key evil-visual-state-map "r" evil-inner-text-objects-map)
-  (define-key evil-operator-state-map "r" evil-inner-text-objects-map)
+  (add-to-hook 'clojure-mode-hook '(dotspacemacs/fixclj))
   )
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ahs-case-fold-search nil)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-idle-interval 0.25)
+ '(ahs-idle-timer 0 t)
+ '(ahs-inhibit-face-list nil)
+ '(paradox-github-token t)
+ '(ring-bell-function (quote ignore) t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
