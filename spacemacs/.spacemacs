@@ -9,7 +9,7 @@
  ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
  dotspacemacs-configuration-layer-path '()
  ;; List of contribution to load.
- dotspacemacs-configuration-layers '(trishume company-mode erlang-elixir clojure rust git)
+ dotspacemacs-configuration-layers '(trishume company-mode erlang-elixir clojure rust git go)
  ;; If non nil the frame is maximized when Emacs starts up (Emacs 24.4+ only)
  dotspacemacs-fullscreen-at-startup nil
  ;; A list of packages and/or extensions that will not be install and loaded.
@@ -28,7 +28,7 @@
 (defun dotspacemacs/init ()
   "User initialization for Spacemacs. This function is called at the very
  startup."
-  (set-default-font "Inconsolata 11")
+  (set-default-font "Inconsolata 10")
   (setq-default evil-escape-key-sequence (kbd "dh"))
   (setq spacemacs-erlang-elixir-use-edts t)
   (setq org-src-fontify-natively t)
