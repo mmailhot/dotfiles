@@ -9,7 +9,7 @@
  ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
  dotspacemacs-configuration-layer-path '()
  ;; List of contribution to load.
- dotspacemacs-configuration-layers '(trishume company-mode erlang-elixir clojure rust git go)
+ dotspacemacs-configuration-layers '(trishume company-mode erlang-elixir clojure rust git go haskell)
  ;; If non nil the frame is maximized when Emacs starts up (Emacs 24.4+ only)
  dotspacemacs-fullscreen-at-startup nil
  ;; A list of packages and/or extensions that will not be install and loaded.
@@ -41,7 +41,8 @@
 
 (defun dotspacemacs/config ()
   (add-to-hook 'clojure-mode-hook '(dotspacemacs/fixclj))
-  )
+  (add-to-hook 'interactive-haskell-mode-hook '(evil-emacs-state))
+  (add-to-hook 'haskell-error-mode-hook '(evil-emacs-state)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
