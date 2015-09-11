@@ -1,5 +1,5 @@
 - link:
-    ~/.spacemacs: spacemacs/.spacemacs
+    ~/.spacemacs: spacemacs/dot-spacemacs
     ~/.i3: i3/
     #zsh/prezto setup
     ~/.zprezto: prezto
