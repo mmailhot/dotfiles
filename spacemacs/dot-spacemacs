@@ -9,7 +9,7 @@
  ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
  dotspacemacs-configuration-layer-path '()
  ;; List of contribution to load.
- dotspacemacs-configuration-layers '(trishume company-mode erlang-elixir clojure rust git go haskell)
+ dotspacemacs-configuration-layers '(trishume company-mode erlang-elixir clojure rust git go haskell extra-langs)
  ;; If non nil the frame is maximized when Emacs starts up (Emacs 24.4+ only)
  dotspacemacs-fullscreen-at-startup nil
  ;; A list of packages and/or extensions that will not be install and loaded.
