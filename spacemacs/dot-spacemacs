@@ -9,7 +9,8 @@
  ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
  dotspacemacs-configuration-layer-path '()
  ;; List of contribution to load.
- dotspacemacs-configuration-layers '(trishume company-mode erlang-elixir clojure rust git go haskell extra-langs)
+ dotspacemacs-configuration-layers '(trishume company company-mode auto-completion latex erlang-elixir clojure rust git go 
+(c-c++ :variables c-c++-default-mode-for-headers 'c++-mode) org haskell extra-langs d floobits html)
  ;; If non nil the frame is maximized when Emacs starts up (Emacs 24.4+ only)
  dotspacemacs-fullscreen-at-startup nil
  ;; A list of packages and/or extensions that will not be install and loaded.
@@ -32,8 +33,7 @@
   (setq-default evil-escape-key-sequence (kbd "dh"))
   (setq spacemacs-erlang-elixir-use-edts t)
   (setq org-src-fontify-natively t)
-  (setq ido-auto-merge-work-directories-length -1)
-  )
+  (setq ido-auto-merge-work-directories-length -1))
 
 (defun dotspacemacs/fixclj ()
   (progn
@@ -42,7 +42,8 @@
 (defun dotspacemacs/config ()
   (add-to-hook 'clojure-mode-hook '(dotspacemacs/fixclj))
   (add-to-hook 'interactive-haskell-mode-hook '(evil-emacs-state))
-  (add-to-hook 'haskell-error-mode-hook '(evil-emacs-state)))
+  (add-to-hook 'haskell-error-mode-hook '(evil-emacs-state))
+  (add-hook 'doc-view-mode-hook 'auto-revert-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
