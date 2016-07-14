@@ -10,7 +10,7 @@
  dotspacemacs-configuration-layer-path '()
  ;; List of contribution to load.
  dotspacemacs-configuration-layers '(trishume company company-mode auto-completion latex erlang-elixir clojure rust git go 
-(c-c++ :variables c-c++-default-mode-for-headers 'c++-mode) org haskell extra-langs d floobits html)
+(c-c++ :variables c-c++-default-mode-for-headers 'c++-mode) org haskell extra-langs d floobits html racket)
  ;; If non nil the frame is maximized when Emacs starts up (Emacs 24.4+ only)
  dotspacemacs-fullscreen-at-startup nil
  ;; A list of packages and/or extensions that will not be install and loaded.
